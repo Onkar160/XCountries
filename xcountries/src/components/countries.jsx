@@ -7,7 +7,7 @@ export default function Countries() {
     fetch("https://xcountries-backend.azurewebsites.net/all")
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Error fetching data :");
+          throw new Error();
         }
         return response.json();
       })
@@ -15,7 +15,7 @@ export default function Countries() {
         // console.log(data);
         setCountries(data);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error("Error fetching data: " + error));
   }, []);
 
   return (
